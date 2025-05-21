@@ -6,20 +6,26 @@ MCP server for mcp-registry: https://github.com/modelcontextprotocol/registry
 
 This MCP server exposes the following tools:
 
-### 1. list_registry_server_entries
+### 1. health_check
+**Description:** Checks the health of the MCP registry server.
+**Parameters:** None
+
+---
+
+### 2. list_registry_server_entries
 **Description:** Lists MCP registry server entries with pagination support.
 **Parameters:** None
 
 ---
 
-### 2. get_server_details
+### 3. get_server_details
 **Description:** Get details for a specific MCP registry server.
 **Parameters:**
 - `server_id` (str): The ID of the server to retrieve details for.
 
 ---
 
-### 3. publish_server_entry
+### 4. publish_server_entry
 **Description:** Publishes a new MCP server entry to the registry. Authentication is required via Bearer token in the Authorization header.
 **Parameters:**
 - `server_name` (str): The name of the server to publish.

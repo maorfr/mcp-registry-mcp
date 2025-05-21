@@ -7,7 +7,7 @@ from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("mcp-registry")
 
-MCP_REGISTRY_API_BASE = f"{os.environ['MCP_REGISTRY_URL']}/v0/"
+MCP_REGISTRY_API_BASE = f"{os.environ['MCP_REGISTRY_URL']}/v0"
 
 
 async def make_request(
@@ -29,6 +29,14 @@ async def make_request(
             response = await client.request(method, url, headers=headers, json=data)
         response.raise_for_status()
         return response.json()
+
+
+@mcp.tool()
+async def health_check():
+    """Checks the health of the MCP registry server."""
+    url = f"{MCP_REGISTRY_API_BASE}/health"
+    response = await make_request(url)
+    return response
 
 
 def format_servers(data: list[dict[str, Any]]) -> str:
