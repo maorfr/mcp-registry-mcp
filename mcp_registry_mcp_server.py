@@ -75,5 +75,13 @@ async def publish_server_entry(server_name: str, description: str):
     return response
 
 
+@mcp.tool()
+async def ping():
+    """Simple ping endpoint that returns environment configuration information."""
+    url = f"{MCP_REGISTRY_API_BASE}/ping"
+    response = await make_request(url)
+    return response
+
+
 if __name__ == "__main__":
     mcp.run(transport="stdio")
