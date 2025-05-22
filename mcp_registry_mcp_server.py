@@ -64,18 +64,6 @@ async def get_server_details(server_id: str):
 
 
 @mcp.tool()
-async def publish_server_entry(server_name: str, description: str):
-    """Publishes a new MCP server entry to the registry. Authentication is required via Bearer token in the Authorization header."""
-    url = f"{MCP_REGISTRY_API_BASE}/publish"
-    data = {
-        "name": server_name,
-        "description": description,
-    }
-    response = await make_request(url, "POST", data)
-    return response
-
-
-@mcp.tool()
 async def ping():
     """Simple ping endpoint that returns environment configuration information."""
     url = f"{MCP_REGISTRY_API_BASE}/ping"
@@ -84,4 +72,4 @@ async def ping():
 
 
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    mcp.run(transport="sse")
