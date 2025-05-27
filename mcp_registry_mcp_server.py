@@ -72,4 +72,4 @@ async def ping():
 
 
 if __name__ == "__main__":
-    mcp.run(transport="sse")
+    mcp.run(transport=os.environ.get("MCP_TRANSPORT", "stdio"))
