@@ -49,12 +49,14 @@ Example configuration for running with Podman:
         "-i",
         "--rm",
         "-e", "MCP_REGISTRY_URL",
+        "-e", "MCP_TRANSPORT",
         "-e", "MCP_REGISTRY_API_KEY",
-        "quay.io/maorfr/mcp-registry-mcp"
+        "quay.io/maorfr/mcp-registry-mcp:latest"
       ],
       "env": {
         "MCP_REGISTRY_URL": "https://your-domain.mcp-registry.co",
-        "MCP_REGISTRY_API_KEY": "REDACTED",
+        "MCP_TRANSPORT": "sse",
+        "MCP_REGISTRY_API_KEY": "REDACTED"
       }
     }
   }
