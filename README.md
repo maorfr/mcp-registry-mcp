@@ -25,11 +25,9 @@ This MCP server exposes the following tools:
 
 ---
 
-### 4. publish_server_entry
-**Description:** Publishes a new MCP server entry to the registry. Authentication is required via Bearer token in the Authorization header.
-**Parameters:**
-- `server_name` (str): The name of the server to publish.
-- `description` (str): A description for the server.
+### 4. ping
+**Description:** Simple ping endpoint that returns environment configuration information.
+**Parameters:** None
 
 ---
 
@@ -49,14 +47,12 @@ Example configuration for running with Podman:
         "-i",
         "--rm",
         "-e", "MCP_REGISTRY_URL",
-        "-e", "MCP_TRANSPORT",
-        "-e", "MCP_REGISTRY_API_KEY",
+        "-e", "MCP_TRANSPORT"
         "quay.io/maorfr/mcp-registry-mcp:latest"
       ],
       "env": {
         "MCP_REGISTRY_URL": "https://your-domain.mcp-registry.co",
-        "MCP_TRANSPORT": "sse",
-        "MCP_REGISTRY_API_KEY": "REDACTED"
+        "MCP_TRANSPORT": "sse"
       }
     }
   }
